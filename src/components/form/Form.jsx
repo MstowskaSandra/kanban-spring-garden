@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import * as S from "./Form.styles";
 
 function Form({ onAddTask, labelsList }) {
   const [taskName, setTaskName] = useState("");
@@ -24,22 +25,22 @@ function Form({ onAddTask, labelsList }) {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <label>Add new task</label>
-      <textarea
+    <S.FormContainer className="form" onSubmit={handleSubmit}>
+      <S.FormLabel>Add new task</S.FormLabel>
+      <S.TextArea
         className="input-form textarea"
         name="task"
         placeholder="New task"
         value={taskName}
         onChange={(e) => setTaskName(e.target.value)}
-      ></textarea>
+      ></S.TextArea>
 
-      <div>
-        <label>Labels:</label>
-        <div>
+      <S.LabelsSection>
+        <S.FormLabel>Labels:</S.FormLabel>
+        <S.LabelsList>
           {labelsList?.map((label) => (
-            <label key={label.id}>
-              <input
+            <S.CheckboxLabel key={label.id}>
+              <S.CheckboxInput
                 type="checkbox"
                 checked={selectedLabels.includes(label.name)}
                 onChange={(e) => {
@@ -52,20 +53,24 @@ function Form({ onAddTask, labelsList }) {
                 }}
               />
               {label.name}
-            </label>
+            </S.CheckboxLabel>
           ))}
-        </div>
-      </div>
-      <input
+        </S.LabelsList>
+      </S.LabelsSection>
+      <S.InputField
         className="input-form"
         type="text"
         name="user"
         placeholder="Your username"
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
-      ></input>
-      <input className="input-button" type="submit" value="Add"></input>
-    </form>
+      ></S.InputField>
+      <S.SubmitButton
+        className="input-button"
+        type="submit"
+        value="Add"
+      ></S.SubmitButton>
+    </S.FormContainer>
   );
 }
 
