@@ -4,8 +4,11 @@ import Data from "../../../db/data.json";
 import Column from "../column/Column";
 import Form from "../form/Form";
 import useStorage from "../../hooks/useStorage";
+import { useState } from "react";
+import TaskModal from "../modal/TaskModal";
 
 function Board() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [tasks, setTasks] = useStorage("tasks", Data.tasks);
   const [columns, setColumns] = useStorage("columns", Data.columns);
   const [labelsList, setLabelsList] = useStorage("labels", Data.labels);
@@ -44,8 +47,14 @@ function Board() {
       }}
     >
       <S.Container>
+        <button onClick={() => setIsModalOpen(true)}>+ Add new Task</button>
         <Column />
-        <Form />
+
+        {isModalOpen ? (
+          <TaskModal onClose={() => setIsModalOpen(false)}>
+            <Form />
+          </TaskModal>
+        ) : null}
       </S.Container>
     </BoardContext.Provider>
   );
