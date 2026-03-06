@@ -11,6 +11,8 @@ function Board() {
   const [tasks, setTasks] = useStorage("tasks", Data.tasks);
   const [columns, setColumns] = useStorage("columns", Data.columns);
   const [labelsList, setLabelsList] = useStorage("labels", Data.labels);
+  console.log("useStorage labelsList:", labelsList);
+  console.log("Board labelsList:", labelsList[0]);
 
   const addTask = (newTask) => {
     const startColumnId = 1;

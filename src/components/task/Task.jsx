@@ -25,7 +25,7 @@ function Task({ id, name, user, updateTask, labels, labelsList }) {
     <S.TaskContainer draggable="true" onDragStart={onDragStart}>
       {isEditing ? (
         <>
-          <S.EditIcon
+          <S.EditInput
             value={editName}
             onChange={(e) => setEditName(e.target.value)}
             onBlur={handleSave}
@@ -45,6 +45,7 @@ function Task({ id, name, user, updateTask, labels, labelsList }) {
           {labels &&
             labels.map((labelName, index) => {
               const labelObj = labelsList.find((l) => l.name === labelName);
+
               return (
                 <S.LabelChip
                   key={`${id}-${labelName}-${index}`}
