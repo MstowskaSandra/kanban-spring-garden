@@ -105,10 +105,7 @@ export const CheckboxLabel = styled.label`
   padding: 0.25rem;
   border-radius: 4px;
   transition: background 0.2s;
-  
-  &:hover {
-    background: rgba(0, 123, 255, 0.1);
-  }
+  background-color: ${(props) => props.color || "#e0e0e0"};
 `;
 
 export const CheckboxInput = styled.input`

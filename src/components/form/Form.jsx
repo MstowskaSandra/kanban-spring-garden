@@ -39,7 +39,7 @@ function Form({ onAddTask, labelsList }) {
         <S.FormLabel>Labels:</S.FormLabel>
         <S.LabelsList>
           {labelsList?.map((label) => (
-            <S.CheckboxLabel key={label.id}>
+            <S.CheckboxLabel key={label.id} color={label.color}>
               <S.CheckboxInput
                 type="checkbox"
                 checked={selectedLabels.includes(label.name)}
