@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import BoardContext from "../../context/boardContext";
 import * as S from "./Form.styles";
 
-function Form({ onAddTask, labelsList }) {
+function Form() {
   const [taskName, setTaskName] = useState("");
   const [userName, setUserName] = useState("");
   const [selectedLabels, setSelectedLabels] = useState([]);
+  const { addTask, labelsList } = useContext(BoardContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,10 +14,9 @@ function Form({ onAddTask, labelsList }) {
       alert("Wypełnij formularz.");
       return;
     }
-    onAddTask({
+    addTask({
       name: taskName,
       user: userName,
-      idColumn: 1,
       labels: selectedLabels,
     });
 

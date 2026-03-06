@@ -1,14 +1,10 @@
 import * as S from "./Column.styles";
-import React, { useContext } from "react";
-import ColumnContext from "../../context/columnContext";
-import TaskContext from "../../context/taskContext";
-import SetTaskContext from "../../context/setTaskContext";
+import { useContext } from "react";
 import Task from "../task/Task";
+import BoardContext from "../../context/boardContext";
 
-function Column({ removeTask, labelsList }) {
-  const columns = useContext(ColumnContext);
-  const tasks = useContext(TaskContext);
-  const setTasks = useContext(SetTaskContext);
+function Column() {
+  const { columns, tasks, setTasks, removeTask } = useContext(BoardContext);
 
   const onDrop = (e, column) => {
     e.preventDefault();
@@ -77,7 +73,6 @@ function Column({ removeTask, labelsList }) {
                       user={task.user}
                       updateTask={updateTask}
                       labels={task.labels || []}
-                      labelsList={labelsList}
                     />
                     {column.id === 5 && (
                       <S.DeleteButton

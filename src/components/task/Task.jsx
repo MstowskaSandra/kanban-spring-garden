@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import * as S from "./Task.styles";
+import BoardContext from "../../context/boardContext";
 
-function Task({ id, name, user, updateTask, labels, labelsList }) {
+function Task({ id, name, user, updateTask, labels }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(name);
+  const { labelsList } = useContext(BoardContext);
 
   const onDragStart = (e) => {
     e.dataTransfer.setData("taskId", id);

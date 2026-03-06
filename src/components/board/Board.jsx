@@ -1,7 +1,5 @@
 import * as S from "./Board.styles";
-import TaskContext from "../../context/taskContext";
-import ColumnContext from "../../context/columnContext";
-import SetTaskContext from "../../context/setTaskContext";
+import BoardContext from "../../context/boardContext";
 import Data from "../../../db/data.json";
 import Column from "../column/Column";
 import Form from "../form/Form";
@@ -11,26 +9,23 @@ function Board() {
   const [tasks, setTasks] = useStorage("tasks", Data.tasks);
   const [columns, setColumns] = useStorage("columns", Data.columns);
   const [labelsList, setLabelsList] = useStorage("labels", Data.labels);
-  console.log("useStorage labelsList:", labelsList);
-  console.log("Board labelsList:", labelsList[0]);
 
   const addTask = (newTask) => {
-    const startColumnId = 1;
-    const startColumnLimit = 6;
+    const startColumn = columns.find((c) => c.id === 1);
 
     const tasksInStartColumn = tasks.filter(
-      (task) => task.idColumn === startColumnId,
+      (task) => task.idColumn === startColumn.id,
     );
 
-    if (tasksInStartColumn.length >= startColumnLimit) {
+    if (tasksInStartColumn.length >= startColumn.limit) {
       alert(
-        `Limit ${startColumnLimit} tasków został osiągnięty dla kolumny startowej`,
+        `Limit ${startColumn.limit} tasków został osiągnięty dla kolumny startowej`,
       );
       return;
     }
 
     const id = tasks.length ? Math.max(...tasks.map((t) => t.id)) + 1 : 1;
-    setTasks([...tasks, { id, ...newTask, idColumn: startColumnId }]);
+    setTasks((prev) => [...prev, { id, ...newTask, idColumn: startColumn.id }]);
   };
 
   const removeTask = (taskId) => {
@@ -38,16 +33,21 @@ function Board() {
   };
 
   return (
-    <ColumnContext.Provider value={columns}>
-      <TaskContext.Provider value={tasks}>
-        <SetTaskContext.Provider value={setTasks}>
-          <S.Container>
-            <Column removeTask={removeTask} labelsList={labelsList} />
-            <Form onAddTask={addTask} labelsList={labelsList} />
-          </S.Container>
-        </SetTaskContext.Provider>
-      </TaskContext.Provider>
-    </ColumnContext.Provider>
+    <BoardContext.Provider
+      value={{
+        tasks,
+        setTasks,
+        columns,
+        labelsList,
+        addTask,
+        removeTask,
+      }}
+    >
+      <S.Container>
+        <Column />
+        <Form />
+      </S.Container>
+    </BoardContext.Provider>
   );
 }
 
