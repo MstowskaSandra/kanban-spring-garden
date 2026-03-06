@@ -75,20 +75,21 @@
       "name": "Trimming and replanting the hyacinths into bed number 4",
       "idColumn": 1,
       "user": "Sandra",
-      "type": "flower"
+      "type": "flower",
+      "labels": ["trimming", "repotting"]
     }
   ],
   "labels": [
-    { "id": 1, "name": "shopping" },
-    { "id": 2, "name": "seeds" },
-    { "id": 3, "name": "seedlings" },
-    { "id": 4, "name": "planting" },
-    { "id": 5, "name": "seedlings transplant" },
-    { "id": 6, "name": "watering" },
-    { "id": 7, "name": "fertilization" },
-    { "id": 8, "name": "tramming" },
-    { "id": 9, "name": "harvest" },
-    { "id": 10, "name": "repotting" },
-    { "id": 11, "name": "digging" }
+    { "id": 1, "name": "shopping", "color": "#ff9800" },
+    { "id": 2, "name": "seeds", "color": "#4caf50" },
+    { "id": 3, "name": "seedlings", "color": "#2196f3" },
+    { "id": 4, "name": "planting", "color": "#9c27b0" },
+    { "id": 5, "name": "seedling transplant", "color": "#ffc107" },
+    { "id": 6, "name": "watering", "color": "#00bcd4" },
+    { "id": 7, "name": "fertilization", "color": "#ff5722" },
+    { "id": 8, "name": "trimming", "color": "#795548" },
+    { "id": 9, "name": "harvest", "color": "#8bc34a" },
+    { "id": 10, "name": "repotting", "color": "#607d8b" },
+    { "id": 11, "name": "digging", "color": "#f44336" }
   ]
 }

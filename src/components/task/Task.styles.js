@@ -1,0 +1,90 @@
+import styled from "styled-components";
+
+export const TaskContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid black;
+  margin-top: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: small;
+  width: 80%;
+  margin-bottom: 0.5rem;
+  background-color: #fff475;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 4px 0 6px rgba(0, 0, 0, 0.1);
+  transform: rotate(-2deg);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  position: relative;  
+`;
+
+export const TaskContent = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+export const TaskName = styled.p`
+  margin-bottom: 0.25rem;
+`;
+
+export const TaskUser = styled.span`
+  font-size: x-small;
+  align-self: flex-end;
+  margin-right: 0.25rem;
+  letter-spacing: 1px;
+  margin-top: 0.75rem;
+  color: blue;
+`;
+
+export const EditInput = styled.input`
+  width: 100%;
+  padding: 4px 8px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'Comic Sans MS', cursive;
+  background: white;
+  margin-bottom: 4px;
+`;
+
+export const EditButton = styled.button`
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  padding: 2px 8px;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  
+  &:hover {
+    background: #1976d2;
+  }
+`;
+
+export const EditIcon = styled.button`
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  cursor: pointer;
+`;
+
+export const LabelChip = styled.span`
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: 500;
+  margin: 2px 4px 2px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  line-height: 1.2;
+  min-width: 24px;
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  
+  background-color: ${props => props.color || '#e0e0e0'};
+  color: #333;
+`;

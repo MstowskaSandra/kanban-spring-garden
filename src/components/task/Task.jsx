@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import * as S from "./Task.styles";
 
-function Task({ id, name, user, updateTask, labels }) {
+function Task({ id, name, user, updateTask, labels, labelsList }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(name);
 
@@ -21,10 +22,10 @@ function Task({ id, name, user, updateTask, labels }) {
   };
 
   return (
-    <div className="task" draggable="true" onDragStart={onDragStart}>
+    <S.TaskContainer draggable="true" onDragStart={onDragStart}>
       {isEditing ? (
         <>
-          <input
+          <S.EditIcon
             value={editName}
             onChange={(e) => setEditName(e.target.value)}
             onBlur={handleSave}
@@ -37,25 +38,32 @@ function Task({ id, name, user, updateTask, labels }) {
             }}
             autoFocus
           />
-          <button onClick={handleSave}>ok</button>
+          <S.EditButton onClick={handleSave}>ok</S.EditButton>
         </>
       ) : (
-        <>
+        <S.TaskContent>
           {labels &&
-            labels.map((labelName, index) => (
-              <span key={`${id}-${labelName}-${index}`} title={labelName}>
-                {labelName}
-              </span>
-            ))}
-          <p>{name}</p>
-          <span>{user}</span>
+            labels.map((labelName, index) => {
+              const labelObj = labelsList.find((l) => l.name === labelName);
+              return (
+                <S.LabelChip
+                  key={`${id}-${labelName}-${index}`}
+                  title={labelName}
+                  color={labelObj?.color}
+                >
+                  {labelName}
+                </S.LabelChip>
+              );
+            })}
+          <S.TaskName>{name}</S.TaskName>
+          <S.TaskUser>{user}</S.TaskUser>
 
-          <button onClick={handleEditClick} title="Edit">
+          <S.EditIcon onClick={handleEditClick} title="Edit">
             ✏️
-          </button>
-        </>
+          </S.EditIcon>
+        </S.TaskContent>
       )}
-    </div>
+    </S.TaskContainer>
   );
 }
 
