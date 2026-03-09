@@ -2,6 +2,7 @@ import * as S from "./Columns.styles";
 import { useContext, useState } from "react";
 import BoardContext from "../../context/boardContext";
 import Column from "../column/Column";
+import LabelFilters from "../labelFilters/LabelFilters";
 
 function Columns() {
   const [activeLabels, setActiveLabels] = useState([]);
@@ -52,29 +53,11 @@ function Columns() {
 
   return (
     <S.BoardContainer>
-      <S.LabelFilters>
-        {labelsList.map((label) => (
-          <S.LabelChip
-            key={label.id}
-            color={label.color}
-            active={activeLabels.includes(label.name)}
-            onClick={() => {
-              setActiveLabels((prev) =>
-                prev.includes(label.name)
-                  ? prev.filter((l) => l !== label.name)
-                  : [...prev, label.name],
-              );
-            }}
-          >
-            {label.name.slice(0, 3)} {/* seeds→see, planting→pla, March→Mar */}
-          </S.LabelChip>
-        ))}
-        {activeLabels.length > 0 && (
-          <S.ClearButton onClick={() => setActiveLabels([])}>
-            Clear ({activeLabels.length})
-          </S.ClearButton>
-        )}
-      </S.LabelFilters>
+      <LabelFilters
+        labelsList={labelsList}
+        activeLabels={activeLabels}
+        setActiveLabels={setActiveLabels}
+      />
       <S.BoardHeader>
         <S.HeaderRow>
           {columns.map((column) => (
