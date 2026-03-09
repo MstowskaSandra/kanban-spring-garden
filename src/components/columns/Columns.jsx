@@ -1,4 +1,5 @@
 import * as S from "./Columns.styles";
+import toast from "react-hot-toast";
 import { useContext, useState } from "react";
 import BoardContext from "../../context/boardContext";
 import Column from "../column/Column";
@@ -17,9 +18,7 @@ function Columns() {
 
     const tasksInColumn = tasks.filter((t) => t.idColumn === column.id);
     if (tasksInColumn.length >= column.limit) {
-      alert(
-        `Limit (${column.limit}) dla kolumny "${column.name}" został osiagnięty`,
-      );
+      toast.error(`Too many in "${column.name}"! Limit ${column.limit} 🤏`);
       return;
     }
 

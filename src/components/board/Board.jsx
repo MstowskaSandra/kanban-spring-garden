@@ -1,4 +1,5 @@
 import * as S from "./Board.styles";
+import toast from "react-hot-toast";
 import BoardContext from "../../context/boardContext";
 import Data from "../../../db/data.json";
 import Columns from "../columns/Columns";
@@ -21,11 +22,12 @@ function Board() {
     );
 
     if (tasksInStartColumn.length >= startColumn.limit) {
-      alert(
-        `Limit ${startColumn.limit} tasków został osiągnięty dla kolumny startowej`,
+      toast.error(
+        `Too many in "${startColumn.name}"! Limit ${startColumn.limit} 🤏`,
       );
       return;
     }
+    toast.success("New task added to Planning! 🌱");
 
     const id = tasks.length ? Math.max(...tasks.map((t) => t.id)) + 1 : 1;
     setTasks((prev) => [...prev, { id, ...newTask, idColumn: startColumn.id }]);

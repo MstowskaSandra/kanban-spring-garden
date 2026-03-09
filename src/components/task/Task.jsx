@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import * as S from "./Task.styles";
+import toast from "react-hot-toast";
 import BoardContext from "../../context/boardContext";
 import TaskEdit from "../taskEdit/TaskEdit";
 import TaskLabels from "../taskLabels/TaskLabels";
@@ -23,6 +24,7 @@ function Task({ id, name, user, labels }) {
   const handleSave = () => {
     if (editName.trim()) {
       updateTask(id, editName.trim(), editLabels);
+      toast.success("Task saved ✅");
     }
     setIsEditing(false);
   };
