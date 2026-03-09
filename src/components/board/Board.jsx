@@ -35,6 +35,16 @@ function Board() {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
+  const updateTask = (taskId, newName, newLabels) => {
+    setTasks(
+      tasks.map((t) =>
+        t.id === taskId
+          ? { ...t, name: newName, labels: newLabels || t.labels || [] }
+          : t,
+      ),
+    );
+  };
+
   return (
     <BoardContext.Provider
       value={{
@@ -44,6 +54,7 @@ function Board() {
         labelsList,
         addTask,
         removeTask,
+        updateTask,
       }}
     >
       <S.Container>

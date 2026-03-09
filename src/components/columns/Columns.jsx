@@ -6,8 +6,7 @@ import LabelFilters from "../labelFilters/LabelFilters";
 
 function Columns() {
   const [activeLabels, setActiveLabels] = useState([]);
-  const { columns, tasks, setTasks, removeTask, labelsList } =
-    useContext(BoardContext);
+  const { columns, tasks, setTasks, labelsList } = useContext(BoardContext);
 
   const onDrop = (e, column) => {
     e.preventDefault();
@@ -30,15 +29,15 @@ function Columns() {
     setTasks(updatedTasks);
   };
 
-  const updateTask = (taskId, newName, newLabels) => {
-    const task = tasks.find((t) => t.id === taskId);
-    const updatedTasks = tasks.map((t) =>
-      t.id === taskId
-        ? { ...t, name: newName, labels: newLabels || task?.labels || [] }
-        : t,
-    );
-    setTasks(updatedTasks);
-  };
+  // const updateTask = (taskId, newName, newLabels) => {
+  //   const task = tasks.find((t) => t.id === taskId);
+  //   const updatedTasks = tasks.map((t) =>
+  //     t.id === taskId
+  //       ? { ...t, name: newName, labels: newLabels || task?.labels || [] }
+  //       : t,
+  //   );
+  //   setTasks(updatedTasks);
+  // };
 
   const onDragOver = (e) => {
     e.preventDefault();
@@ -80,8 +79,6 @@ function Columns() {
               )}
               onDrop={onDrop}
               onDragOver={onDragOver}
-              updateTask={updateTask}
-              removeTask={removeTask}
             />
           ))}
         </S.ColumnsRow>
