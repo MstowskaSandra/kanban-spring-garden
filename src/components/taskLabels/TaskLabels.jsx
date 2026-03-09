@@ -1,6 +1,9 @@
 import * as S from './TaskLabels.styles';
+import { useContext } from "react";
+import BoardContext from "../../context/boardContext";
 
-const TaskLabels = ({ labels, labelsList }) => {
+const TaskLabels = ({ labels }) => {
+  const { labelsList } = useContext(BoardContext);
   return (
     <>
       {labels &&

@@ -29,16 +29,6 @@ function Columns() {
     setTasks(updatedTasks);
   };
 
-  // const updateTask = (taskId, newName, newLabels) => {
-  //   const task = tasks.find((t) => t.id === taskId);
-  //   const updatedTasks = tasks.map((t) =>
-  //     t.id === taskId
-  //       ? { ...t, name: newName, labels: newLabels || task?.labels || [] }
-  //       : t,
-  //   );
-  //   setTasks(updatedTasks);
-  // };
-
   const onDragOver = (e) => {
     e.preventDefault();
   };

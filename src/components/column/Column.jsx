@@ -4,10 +4,9 @@ import { useContext } from "react";
 import BoardContext from "../../context/boardContext.js";
 
 const Column = ({ column, onDragOver, onDrop, tasksInColumn }) => {
-  const { updateTask, removeTask } = useContext(BoardContext);
+  const { removeTask } = useContext(BoardContext);
   return (
     <S.ColumnContainer
-      key={column.id}
       onDrop={(e) => onDrop(e, column)}
       onDragOver={onDragOver}
       data-active={false}
@@ -18,7 +17,6 @@ const Column = ({ column, onDragOver, onDrop, tasksInColumn }) => {
             id={task.id}
             name={task.name}
             user={task.user}
-            updateTask={updateTask}
             labels={task.labels || []}
           />
           {column.id === 5 && (

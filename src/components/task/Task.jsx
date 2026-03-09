@@ -4,11 +4,11 @@ import BoardContext from "../../context/boardContext";
 import TaskEdit from "../taskEdit/TaskEdit";
 import TaskLabels from "../taskLabels/TaskLabels";
 
-function Task({ id, name, user, updateTask, labels }) {
+function Task({ id, name, user, labels }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(name);
   const [editLabels, setEditLabels] = useState(labels || []);
-  const { labelsList } = useContext(BoardContext);
+  const { labelsList, updateTask } = useContext(BoardContext);
 
   const onDragStart = (e) => {
     e.dataTransfer.setData("taskId", id);
@@ -33,7 +33,6 @@ function Task({ id, name, user, updateTask, labels }) {
         <TaskEdit
           editName={editName}
           editLabels={editLabels}
-          labelsList={labelsList}
           onChangeName={setEditName}
           onChangeLabels={setEditLabels}
           onSave={handleSave}
