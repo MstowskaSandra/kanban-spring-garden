@@ -46,25 +46,27 @@ function Task({ id, name, user, labels, columnId }) {
         <S.TaskContent>
           <TaskLabels labels={labels} labelsList={labelsList} />
           <S.TaskName>{name}</S.TaskName>
-          <S.TaskUser>{user}</S.TaskUser>
 
-          <S.EditButton onClick={handleEditClick} title="Edit">
-            ✏️
-          </S.EditButton>
+          <S.Wrapper>
+            <S.TaskUser>{user}</S.TaskUser>
+            <S.EditButton onClick={handleEditClick} title="Edit">
+              ✏️
+            </S.EditButton>
 
-          {columnId === 5 && (
-            <S.DeleteButton onClick={() => setDeleteTaskId(id)}>
-              🗑️
-            </S.DeleteButton>
-          )}
-          <DeleteModal
-            isOpen={!!deleteTaskId}
-            onConfirm={() => {
-              if (deleteTaskId === id) removeTask(deleteTaskId);
-              setDeleteTaskId(null);
-            }}
-            onCancel={() => setDeleteTaskId(null)}
-          />
+            {columnId === 5 && (
+              <S.DeleteButton onClick={() => setDeleteTaskId(id)}>
+                🗑️
+              </S.DeleteButton>
+            )}
+            <DeleteModal
+              isOpen={!!deleteTaskId}
+              onConfirm={() => {
+                if (deleteTaskId === id) removeTask(deleteTaskId);
+                setDeleteTaskId(null);
+              }}
+              onCancel={() => setDeleteTaskId(null)}
+            />
+          </S.Wrapper>
         </S.TaskContent>
       )}
     </S.TaskContainer>

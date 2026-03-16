@@ -4,23 +4,31 @@ import BoardContext from "../../context/boardContext";
 
 const TaskLabels = ({ labels }) => {
   const { labelsList } = useContext(BoardContext);
-  return (
-    <>
-      {labels &&
-        labels.map((labelName, index) => {
-          const labelObj = labelsList.find((l) => l.name === labelName);
-          return (
-            <S.LabelChip
-              key={`${labelName}-${index}`}
-              title={labelName}
-              color={labelObj?.color}
-            >
-              {labelName}
-            </S.LabelChip>
-          );
-        })}
-    </>
-  );
+   return (
+     <>
+       {labels &&
+         labels.map((labelName, index) => {
+           const labelObj = labelsList.find((l) => l.name === labelName);
+
+           return (
+             <S.LabelChip
+               key={`${labelName}-${index}`}
+               title={labelName}
+               color={labelObj?.color}
+             >
+               {labelObj?.icon ? (
+                 <img
+                   src={labelObj.icon}
+                   alt={labelObj?.name || labelName}
+                   style={{ width: "1.5rem", height: "1.5rem" }}
+                 />
+               ) : null}
+               {labelObj?.icon ? "" : labelName}
+             </S.LabelChip>
+           );
+         })}
+     </>
+   );
 };
 
 export default TaskLabels;
