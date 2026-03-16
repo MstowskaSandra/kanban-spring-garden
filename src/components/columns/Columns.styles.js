@@ -10,17 +10,84 @@ export const BoardContainer = styled.div`
   background: #c0ff72;
 
   overflow: hidden;
+
 `;
 
 export const Toolbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.75rem;
   background: #ecffc7;
   border-bottom: 3px solid #5e891b;
-  flex-wrap: wrap;
   gap: 0.5rem;
+
+  @media (max-width: 767px) {
+    justify-content: center;
+  }
+`;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #283b0a;
+
+    @media (max-width: 567px) {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: 568px) and (max-width: 767px) {
+      font-size: 2rem;
+    }
+  }
+
+  img {
+    width: 4rem;
+
+    @media (max-width: 567px) {
+      width: 2.5rem;
+    }
+
+    @media (max-width: 767px) {
+      width: 3rem;
+    }
+  }
+
+  @media (max-width: 567px) {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+`;
+
+export const BtnsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2rem;
+
+  @media (max-width: 567px) {
+    padding: 0 1rem;
+  }
+`;
+
+export const ToolbarBtn = styled.button`
+  border-radius: 16px;
+  width: 4rem;
+  height: 2.5rem;
+  box-shadow: 2px 2px 4px #283b0a;
+
+  img {
+    width: 1.25rem;
+  }
 `;
 
 export const ScrollArea = styled.div`

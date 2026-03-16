@@ -19,20 +19,11 @@ const LabelFilters = ({ activeLabels, setActiveLabels, isOpen, setIsOpen }) => {
       <S.BtnsWrapper>
         {activeLabels.length > 0 && (
           <S.Button onClick={() => setActiveLabels([])}>
-            <img
-              src="/icons/broom.png"
-              alt="Clear"
-              style={{ width: "1.75rem", height: "1.75rem" }}
-            />
-            ({activeLabels.length})
+            <img src="/icons/broom.png" alt="Clear" />({activeLabels.length})
           </S.Button>
         )}
         <S.Button onClick={toggleFilters}>
-          <img
-            src="/icons/filter.png"
-            alt="Filters"
-            style={{ width: "1.75rem", height: "1.75rem" }}
-          />
+          <img src="/icons/filter.png" alt="Filters" />
         </S.Button>
       </S.BtnsWrapper>
 

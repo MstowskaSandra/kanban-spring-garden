@@ -43,15 +43,20 @@ function Columns() {
   return (
     <S.BoardContainer>
       <S.Toolbar>
-        <button onClick={() => setIsModalOpen(true)}>+ Add new Task</button>
-        <button onClick={() => setIsFiltersOpen(true)}>
-          <img
-            src="/icons/filter.png"
-            alt="Filtry"
-            style={{ width: "1.5rem" }}
-          />
-          Filters
-        </button>
+        <S.Header>
+          <img src="/icons/gardener.png" alt="Gardener" />
+          <h1>My garden</h1>
+        </S.Header>
+
+        <S.BtnsWrapper>
+          <S.ToolbarBtn onClick={() => setIsModalOpen(true)}>
+            <img src="/icons/add.png" alt="Add new task" />
+          </S.ToolbarBtn>
+          <S.ToolbarBtn onClick={() => setIsFiltersOpen(true)}>
+            <img src="/icons/filter.png" alt="Filtry" />
+          </S.ToolbarBtn>
+        </S.BtnsWrapper>
+
         <LabelFilters
           activeLabels={activeLabels}
           setActiveLabels={setActiveLabels}

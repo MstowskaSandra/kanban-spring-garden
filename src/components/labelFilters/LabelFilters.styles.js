@@ -41,17 +41,21 @@ export const BtnsWrapper = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 6rem;
+  border-radius: 16px;
+  width: 5rem;
   height: 3rem;
+  box-shadow: 2px 2px 4px #283b0a;
   background: #baaceb;
   color: #283b0a;
   border: none;
-  box-shadow: 2px 2px 4px #283b0a;
-  border-radius: 12px;
   font-size: 1rem;
+  font-weight: 600;
   text-align: center;
-  padding-bottom: 0.5rem;
   cursor: pointer;
+
+  img {
+    width: 1.5rem;
+  }
 
   &:hover {
     background-color: #d3c8f8;
