@@ -50,6 +50,7 @@ function Columns() {
           setActiveLabels={setActiveLabels}
         />
       </S.Toolbar>
+
       <S.ScrollArea>
         <S.BoardInner>
           <S.HeaderRow>

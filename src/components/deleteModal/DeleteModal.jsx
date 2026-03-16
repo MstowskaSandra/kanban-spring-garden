@@ -12,8 +12,6 @@ const DeleteModal = ({ isOpen, onConfirm, onCancel }) => {
         if (e.target === e.currentTarget) onCancel();
     };
 
-
-
     return (
         isOpen ? (
             <S.Overlay onClick={handleOverlayClick}>

@@ -37,13 +37,33 @@ export const TaskUser = styled.span`
   color: blue;
 `;
 
-export const EditIcon = styled.button`
+export const EditButton = styled.button`
   width: 24px;
   height: 24px;
   background: transparent;
   cursor: pointer;
 `;
 
+export const DeleteButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.25rem;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease;
 
+  ${TaskContent}:hover & {
+    opacity: 1;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
 
 

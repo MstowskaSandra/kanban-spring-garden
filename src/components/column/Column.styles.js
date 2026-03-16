@@ -67,24 +67,4 @@ export const TaskWrapper = styled.div`
   }
 `;
 
-export const DeleteButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0.25rem;
-  background: none;
-  font-size: 1.25rem;
-  font-weight: bold;
-  cursor: pointer;
-  opacity: 0;
-  transition: all 0.3s ease;
 
-  ${TaskWrapper}:hover & {
-    opacity: 1;
-  }
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
