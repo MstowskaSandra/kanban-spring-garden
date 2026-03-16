@@ -7,8 +7,8 @@ import LabelFilters from "../labelFilters/LabelFilters";
 
 function Columns() {
   const [activeLabels, setActiveLabels] = useState([]);
-  const { columns, tasks, setTasks, labelsList, setIsModalOpen } =
-    useContext(BoardContext);
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const { columns, tasks, setTasks, setIsModalOpen } = useContext(BoardContext);
 
   const onDrop = (e, column) => {
     e.preventDefault();
@@ -44,10 +44,19 @@ function Columns() {
     <S.BoardContainer>
       <S.Toolbar>
         <button onClick={() => setIsModalOpen(true)}>+ Add new Task</button>
+        <button onClick={() => setIsFiltersOpen(true)}>
+          <img
+            src="/icons/filter.png"
+            alt="Filtry"
+            style={{ width: "1.5rem" }}
+          />
+          Filters
+        </button>
         <LabelFilters
-          labelsList={labelsList}
           activeLabels={activeLabels}
           setActiveLabels={setActiveLabels}
+          isOpen={isFiltersOpen}
+          setIsOpen={setIsFiltersOpen}
         />
       </S.Toolbar>
 

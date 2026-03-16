@@ -1,35 +1,66 @@
-import { useContext } from 'react';
-import * as S from './LabelFilters.styles';
-import BoardContext from '../../context/boardContext';
+import { useContext, useEffect } from "react";
+import * as S from "./LabelFilters.styles";
+import BoardContext from "../../context/boardContext";
 
-const LabelFilters = ({ activeLabels, setActiveLabels }) => {
-    const { labelsList } = useContext(BoardContext);
-    
-    return (
-        <S.LabelFilters>
-        {labelsList.map((label) => (
-          <S.LabelChip
-            key={label.id}
-            color={label.color}
-            active={activeLabels.includes(label.name)}
-            onClick={() => {
-              setActiveLabels((prev) =>
-                prev.includes(label.name)
-                  ? prev.filter((l) => l !== label.name)
-                  : [...prev, label.name],
-              );
-            }}
-          >
-            {label.name.slice(0, 3)}
-          </S.LabelChip>
-        ))}
+const LabelFilters = ({ activeLabels, setActiveLabels, isOpen, setIsOpen }) => {
+  const { labelsList } = useContext(BoardContext);
+
+  const toggleFilters = () => setIsOpen((prev) => !prev);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
+  return (
+    <S.LabelFilters $isOpen={isOpen}>
+      <S.BtnsWrapper>
         {activeLabels.length > 0 && (
-          <S.ClearButton onClick={() => setActiveLabels([])}>
-            Clear ({activeLabels.length})
-          </S.ClearButton>
+          <S.Button onClick={() => setActiveLabels([])}>
+            <img
+              src="/icons/broom.png"
+              alt="Clear"
+              style={{ width: "1.75rem", height: "1.75rem" }}
+            />
+            ({activeLabels.length})
+          </S.Button>
         )}
-      </S.LabelFilters>
-    );
+        <S.Button onClick={toggleFilters}>
+          <img
+            src="/icons/filter.png"
+            alt="Filters"
+            style={{ width: "1.75rem", height: "1.75rem" }}
+          />
+        </S.Button>
+      </S.BtnsWrapper>
+
+      {labelsList.map((label) => (
+        <S.LabelChip
+          key={label.id}
+          color={label.color}
+          active={activeLabels.includes(label.name)}
+          onClick={() => {
+            setActiveLabels((prev) =>
+              prev.includes(label.name)
+                ? prev.filter((l) => l !== label.name)
+                : [...prev, label.name],
+            );
+          }}
+        >
+          <S.LabelWrapper>
+            <img
+              src={label.icon}
+              alt={label.name}
+              style={{ width: "3rem", height: "3rem" }}
+            />
+            <S.NameSpan>{label.name}</S.NameSpan>{" "}
+          </S.LabelWrapper>
+        </S.LabelChip>
+      ))}
+    </S.LabelFilters>
+  );
 };
 
 export default LabelFilters;

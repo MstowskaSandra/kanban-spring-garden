@@ -5,8 +5,7 @@ export const BoardContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-
-  border: 3px solid #5e891b;
+  border: 3px solid #283b0a;
   border-radius: 12px;
   background: #c0ff72;
 
@@ -18,7 +17,7 @@ export const Toolbar = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: #e8f0d8;
+  background: #ecffc7;
   border-bottom: 3px solid #5e891b;
   flex-wrap: wrap;
   gap: 0.5rem;

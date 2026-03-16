@@ -1,36 +1,76 @@
 import styled from "styled-components";
 
 export const LabelFilters = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  min-width: 200px;
+  background: #5f5aa5;
+  border-left: 3px solid #baaceb;
+  padding: 2rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 12px;
-  max-height: 40px;
-  overflow-x: auto;
-  background: #f5f5f5;
-  border-bottom: 1px solid #eee;
+  flex-direction: column;
+  gap: 1rem;
+  transform: translateX(${({ $isOpen }) => ($isOpen ? "0" : "100%")});
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  overflow-y: auto;
 `;
 
 export const LabelChip = styled.button`
-  padding: 4px 8px;
-  border: 1px solid ${(p) => p.color};
-  background: ${(p) => (p.active ? p.color : "transparent")};
+  border: 3px solid ${(p) => (p.active ? "transparent" : p.color)};
+  box-shadow: 2px 2px 4px #283b0a;
+  background: ${(p) => (p.active ? p.color : "#F0F5E5")};
   color: ${(p) => (p.active ? "white" : p.color)};
-  border-radius: 12px;
-  font-size: 11px;
-  white-space: nowrap;
-  cursor: pointer;
+  border-radius: 16px;
+  font-size: 1rem;
+
   &:hover {
     opacity: 0.8;
   }
 `;
 
-export const ClearButton = styled.button`
-  padding: 4px 8px;
-  background: #ff4444;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 11px;
-  cursor: pointer;
+export const BtnsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #baaceb;
 `;
+
+export const Button = styled.button`
+  width: 6rem;
+  height: 3rem;
+  background: #baaceb;
+  color: #283b0a;
+  border: none;
+  box-shadow: 2px 2px 4px #283b0a;
+  border-radius: 12px;
+  font-size: 1rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #d3c8f8;
+    transform: scale(1.1);
+  }
+`;
+
+export const NameSpan = styled.span`
+  margin-left: 1rem;
+  text-transform: uppercase;
+`;
+
+export const LabelWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+`;
+
+
+
+
