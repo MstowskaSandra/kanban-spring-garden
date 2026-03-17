@@ -48,6 +48,27 @@ function Board() {
     );
   };
 
+  const moveTask = (taskId, newColumnId) => {
+    const task = tasks.find((t) => t.id === taskId);
+    if (!task) return;
+
+    const targetColumn = columns.find((c) => c.id === newColumnId);
+    if (!targetColumn) return;
+
+    const taskInColumn = tasks.filter((t) => t.idColumn === newColumnId);
+
+    if (taskInColumn.length >= targetColumn.limit) {
+      toast.error(
+        `Too many in "${targetColumn.name}"! Limit ${targetColumn.limit} 🤏`,
+      );
+      return;
+    }
+
+    setTasks((prev) =>
+      prev.map((t) => (t.id === taskId ? { ...t, idColumn: newColumnId } : t)),
+    );
+  };
+
   return (
     <BoardContext.Provider
       value={{
@@ -58,6 +79,7 @@ function Board() {
         addTask,
         removeTask,
         updateTask,
+        moveTask,
         setIsModalOpen,
       }}
     >

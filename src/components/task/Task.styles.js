@@ -40,7 +40,6 @@ export const TaskUser = styled.span`
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  border: 1px solid cornflowerblue;
 `;
 
 export const EditButton = styled.button`

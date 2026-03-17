@@ -1,5 +1,4 @@
 import * as S from "./Columns.styles";
-import toast from "react-hot-toast";
 import { useContext, useState } from "react";
 import BoardContext from "../../context/boardContext";
 import Column from "../column/Column";
@@ -8,25 +7,12 @@ import LabelFilters from "../labelFilters/LabelFilters";
 function Columns() {
   const [activeLabels, setActiveLabels] = useState([]);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-  const { columns, tasks, setTasks, setIsModalOpen } = useContext(BoardContext);
+  const { columns, tasks, moveTask, setIsModalOpen } = useContext(BoardContext);
 
   const onDrop = (e, column) => {
     e.preventDefault();
-
     const taskId = Number(e.dataTransfer.getData("taskId"));
-    const task = tasks.find((t) => t.id === taskId);
-    if (!task) return;
-
-    const tasksInColumn = tasks.filter((t) => t.idColumn === column.id);
-    if (tasksInColumn.length >= column.limit) {
-      toast.error(`Too many in "${column.name}"! Limit ${column.limit} 🤏`);
-      return;
-    }
-
-    const newTask = { ...task, idColumn: column.id };
-
-    const updatedTasks = tasks.map((t) => (t.id === taskId ? newTask : t));
-    setTasks(updatedTasks);
+    moveTask(taskId, column.id);
   };
 
   const onDragOver = (e) => {
@@ -102,6 +88,6 @@ function Columns() {
       </S.ScrollArea>
     </S.BoardContainer>
   );
-};
+}
 
 export default Columns;
