@@ -89,14 +89,14 @@ function Task({ id, name, user, labels, columnId, type }) {
 
           <S.Wrapper>
             <S.TaskUser>{user}</S.TaskUser>
-            <S.EditButton onClick={handleEditClick} title="Edit">
-              ✏️
-            </S.EditButton>
+            <S.Button onClick={handleEditClick} title="Edit">
+              <img src="/icons/edit.png" alt="Edit" />
+            </S.Button>
 
             {columnId === 5 && (
-              <S.DeleteButton onClick={() => setDeleteTaskId(id)}>
-                🗑️
-              </S.DeleteButton>
+              <S.Button onClick={() => setDeleteTaskId(id)}>
+                <img src="/icons/bin.png" alt="Delete" />
+              </S.Button>
             )}
             <DeleteModal
               isOpen={!!deleteTaskId}

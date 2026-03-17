@@ -54,24 +54,30 @@ export const TaskName = styled.p`
 `;
 
 export const TaskUser = styled.span`
-  font-size: x-small;
-  align-self: flex-end;
-  margin-right: 0.25rem;
-  letter-spacing: 1px;
-  margin-top: 0.75rem;
-  color: blue;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #283b0a;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding-top: 1rem;
 `;
 
-export const EditButton = styled.button`
-  width: 24px;
-  height: 24px;
+export const Button = styled.button`
+  border: none;
   background: transparent;
   cursor: pointer;
+  padding: 0;
+
+  img {
+    margin: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `;
 
 export const DeleteButton = styled.button`
@@ -90,7 +96,6 @@ export const DeleteButton = styled.button`
     transform: scale(1.1);
   }
 `;
-
 
 export const Arrows = styled.div`
   display: flex;
@@ -113,10 +118,6 @@ export const Arrows = styled.div`
   button:disabled {
     opacity: 0.3;
     cursor: not-allowed;
-  }
-
-  button:hover {
-    border: 2px solid #283b0a;
   }
 `;
 
