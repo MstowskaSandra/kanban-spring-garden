@@ -73,16 +73,25 @@ export const Arrows = styled.div`
   margin-top: 0.5rem;
 
   button {
-    border: none;
-    background: #f3f3f3;
-    padding: 0.3rem 0.6rem;
+    border: 2px solid transparent;
+    background: transparent;
+    padding: 0.125rem;
     border-radius: 6px;
     cursor: pointer;
+
+    img {
+      width: 1rem;
+      height: 1rem;
+    }
   }
 
   button:disabled {
     opacity: 0.3;
     cursor: not-allowed;
+  }
+
+  button:hover {
+    border: 2px solid #283b0a;
   }
 `;
 

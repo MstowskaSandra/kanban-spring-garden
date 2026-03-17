@@ -72,13 +72,13 @@ function Task({ id, name, user, labels, columnId }) {
           {isMobile && (
             <S.Arrows>
               <button onClick={moveLeft} disabled={columnIndex === 0}>
-                ←
+                <img src="/icons/back.png" alt="Back button" />
               </button>
               <button
                 onClick={moveRight}
-                disabled={columnIndex === columns.lenght - 1}
+                disabled={columnIndex === columns.length - 1}
               >
-                →
+                <img src="/icons/next.png" alt="Next button" />
               </button>
             </S.Arrows>
           )}
