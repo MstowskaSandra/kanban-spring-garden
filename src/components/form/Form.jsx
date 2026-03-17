@@ -43,10 +43,9 @@ function Form() {
   };
 
   return (
-    <S.FormContainer className="form" onSubmit={handleSubmit}>
+    <S.FormContainer onSubmit={handleSubmit}>
       <S.FormLabel>Add new task</S.FormLabel>
       <S.TextArea
-        className="input-form textarea"
         name="task"
         placeholder="New task"
         value={taskName}
@@ -58,7 +57,7 @@ function Form() {
       {errors.taskName && <S.ErrorMessage>{errors.taskName}</S.ErrorMessage>}
 
       <S.LabelsSection>
-        <S.FormLabel>Labels:</S.FormLabel>
+        <S.Label>Labels:</S.Label>
         <S.LabelsList>
           {labelsList?.map((label) => (
             <S.CheckboxLabel key={label.id} color={label.color}>
@@ -75,12 +74,12 @@ function Form() {
                 }}
               />
               {label.name}
+              <img src={label.icon} alt={label.name} />
             </S.CheckboxLabel>
           ))}
         </S.LabelsList>
       </S.LabelsSection>
       <S.InputField
-        className="input-form"
         type="text"
         name="user"
         placeholder="Your username"
@@ -93,11 +92,7 @@ function Form() {
 
       {errors.userName && <S.ErrorMessage>{errors.userName}</S.ErrorMessage>}
 
-      <S.SubmitButton
-        className="input-button"
-        type="submit"
-        value="Add"
-      ></S.SubmitButton>
+      <S.SubmitButton type="submit" value="Add"></S.SubmitButton>
     </S.FormContainer>
   );
 }
