@@ -12,11 +12,36 @@ export const TaskContainer = styled.div`
   font-size: small;
   width: 80%;
   margin-bottom: 0.5rem;
-  background-color: #fff475;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 4px 0 6px rgba(0, 0, 0, 0.1);
-  transform: rotate(-2deg);
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  position: relative;  
+  background-color: ${({ typeColor }) => typeColor || "#fff475"};
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: rotate(${() => Math.random() * 4 - 2}deg);
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  position: relative;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: #d62828;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  &:hover {
+    transform: rotate(-1deg) scale(1.02);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.2),
+      0 10px 18px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 export const TaskContent = styled.div`

@@ -6,14 +6,17 @@ import TaskEdit from "../taskEdit/TaskEdit";
 import TaskLabels from "../taskLabels/TaskLabels";
 import DeleteModal from "../deleteModal/DeleteModal";
 import useIsMobile from "../../hooks/useIsMobile";
+import { TASK_TYPES } from "../../constants/taskTypes";
 
-function Task({ id, name, user, labels, columnId }) {
+function Task({ id, name, user, labels, columnId, type }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(name);
   const [editLabels, setEditLabels] = useState(labels || []);
   const [deleteTaskId, setDeleteTaskId] = useState(null);
   const { labelsList, updateTask, removeTask, moveTask, columns } =
     useContext(BoardContext);
+
+  const taskColor = TASK_TYPES[type]?.color;
 
   const isMobile = useIsMobile();
   const columnIndex = columns.findIndex((c) => c.id === columnId);
@@ -54,6 +57,7 @@ function Task({ id, name, user, labels, columnId }) {
     <S.TaskContainer
       draggable={!isMobile}
       onDragStart={!isMobile ? onDragStart : undefined}
+      typeColor={taskColor}
     >
       {isEditing ? (
         <TaskEdit

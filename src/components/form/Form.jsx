@@ -5,6 +5,7 @@ import * as S from "./Form.styles";
 function Form() {
   const [errors, setErrors] = useState({ taskName: "", userName: "" });
   const [taskName, setTaskName] = useState("");
+  const [taskType, setTaskType] = useState(null);
   const [userName, setUserName] = useState("");
   const [selectedLabels, setSelectedLabels] = useState([]);
   const { addTask, labelsList } = useContext(BoardContext);
@@ -20,6 +21,10 @@ function Form() {
       newErrors.userName = "Username must be at least 3 characters";
     }
 
+    if (!taskType) {
+      newErrors.taskType = "Please select task type";
+    }
+
     setErrors(newErrors);
 
     return Object.keys(newErrors).length === 0;
@@ -32,11 +37,13 @@ function Form() {
 
     addTask({
       name: taskName,
+      type: taskType,
       user: userName,
       labels: selectedLabels,
     });
 
     setTaskName("");
+    setTaskType("");
     setUserName("");
     setSelectedLabels([]);
     setErrors({});
@@ -55,6 +62,23 @@ function Form() {
         }}
       ></S.TextArea>
       {errors.taskName && <S.ErrorMessage>{errors.taskName}</S.ErrorMessage>}
+
+      <S.TypeSelect
+        name="type"
+        placeholder="Task type"
+        value={taskType}
+        onChange={(e) => {
+          setTaskType(e.target.value);
+          setErrors((prev) => ({ ...prev, taskType: null }));
+        }}
+      >
+        <option value="">Select type</option>
+        <option value="vegetable">Vegetables</option>
+        <option value="herbs">Herbs</option>
+        <option value="flower">Flowers</option>
+        <option value="fruits">Fruits</option>
+      </S.TypeSelect>
+      {errors.taskType && <S.ErrorMessage>{errors.taskType}</S.ErrorMessage>}
 
       <S.LabelsSection>
         <S.Label>Labels:</S.Label>

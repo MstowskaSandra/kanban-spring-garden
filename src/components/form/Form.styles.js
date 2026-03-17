@@ -44,6 +44,10 @@ export const TextArea = styled.textarea`
   }
 `;
 
+export const TypeSelect = styled.select`
+  border: 2px solid red;
+`;
+
 export const InputField = styled.input`
   width: 70%;
   height: 2rem;
