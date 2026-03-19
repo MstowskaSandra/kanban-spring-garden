@@ -1,6 +1,6 @@
+import * as S from "./DeleteModal.styles";
 import toast from "react-hot-toast";
 import { createPortal } from "react-dom";
-import * as S from "./DeleteModal.styles";
 
 const DeleteModal = ({ isOpen, onConfirm, onCancel }) => {
   const handleConfirm = () => {
@@ -20,10 +20,8 @@ const DeleteModal = ({ isOpen, onConfirm, onCancel }) => {
       <S.Modal>
         <S.Icon>🗑️</S.Icon>
         <S.Title>Delete this task?</S.Title>
-
         <S.Actions>
           <S.DeleteButton onClick={handleConfirm}>Delete</S.DeleteButton>
-
           <S.CancelButton onClick={onCancel}>Cancel</S.CancelButton>
         </S.Actions>
       </S.Modal>

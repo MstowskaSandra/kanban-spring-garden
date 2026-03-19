@@ -8,9 +8,7 @@ export const BoardContainer = styled.div`
   border: 3px solid #283b0a;
   border-radius: 12px;
   background: #c0ff72;
-
   overflow: hidden;
-
 `;
 
 export const Toolbar = styled.div`
@@ -94,7 +92,6 @@ export const ScrollArea = styled.div`
   flex: 1;
   overflow-x: auto;
   overflow-y: hidden;
-
   scrollbar-width: thin;
   scrollbar-color: #5e891b transparent;
 
@@ -144,6 +141,7 @@ export const TxtWrapper = styled.div`
   padding: 0.5rem;
   text-align: center;
   color: #283b0a;
+
   h4 {
     margin: 0;
     font-size: 1.1rem;

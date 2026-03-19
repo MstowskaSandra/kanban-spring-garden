@@ -1,6 +1,6 @@
-import BoardContext from "../../context/boardContext";
 import * as S from "./TaskEdit.styles";
 import { useContext } from "react";
+import BoardContext from "../../context/boardContext";
 
 const TaskEdit = ({
   editName,

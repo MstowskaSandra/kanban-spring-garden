@@ -1,5 +1,5 @@
-import { useContext, useEffect } from "react";
 import * as S from "./LabelFilters.styles";
+import { useContext, useEffect } from "react";
 import BoardContext from "../../context/boardContext";
 
 const LabelFilters = ({ activeLabels, setActiveLabels, isOpen, setIsOpen }) => {

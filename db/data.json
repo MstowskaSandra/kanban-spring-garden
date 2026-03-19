@@ -15,10 +15,10 @@
     {
       "id": 1,
       "name": "Buy Carrot seeds",
-      "idColumn": 1,
+      "idColumn": 5,
       "user": "Sandra",
       "type": "vegetable",
-      "labels": ["shopping", "seeds"]
+      "labels": ["shopping", "seeds", "March"]
     },
     {
       "id": 2,
@@ -29,7 +29,7 @@
       "labels": ["planting", "May"]
     },
     {
-      "id": 3,
+      "id": 12,
       "name": "Water seedlings",
       "idColumn": 2,
       "user": "Sandra",
@@ -62,6 +62,14 @@
     },
     {
       "id": 7,
+      "name": "Schedule August strawberry support",
+      "idColumn": 1,
+      "user": "Sandra",
+      "type": "fruits",
+      "labels": ["August", "fertilization"]
+    },
+    {
+      "id": 3,
       "name": "Make seedlings of salad",
       "idColumn": 1,
       "user": "Sandra",
@@ -73,15 +81,65 @@
       "name": "Plan vegetable beds",
       "idColumn": 5,
       "user": "Sandra",
-      "type": "vegetable"
+      "type": "vegetable",
+      "labels": ["March"]
     },
     {
       "id": 9,
       "name": "Trimming and replanting the hyacinths into bed number 4",
-      "idColumn": 1,
+      "idColumn": 4,
       "user": "Sandra",
       "type": "flower",
       "labels": ["trimming", "June"]
+    },
+    {
+      "id": 10,
+      "name": "Plan first harvest of herbs",
+      "idColumn": 4,
+      "user": "Sandra",
+      "type": "herbs",
+      "labels": ["harvest", "July"]
+    },
+    {
+      "id": 14,
+      "name": "Prepare beds for July cucumbers",
+      "idColumn": 1,
+      "user": "Sandra",
+      "type": "vegetable",
+      "labels": ["June", "digging", "fertilization"]
+    },
+
+    {
+      "id": 13,
+      "name": "Plan September wildberry sowing",
+      "idColumn": 2,
+      "user": "Sandra",
+      "type": "fruits",
+      "labels": ["September"]
+    },
+    {
+      "id": 11,
+      "name": "October bulb planting prep",
+      "idColumn": 1,
+      "user": "Sandra",
+      "type": "flower",
+      "labels": ["October", "planting", "digging"]
+    },
+    {
+      "id": 15,
+      "name": "Weed flower beds weekly",
+      "idColumn": 1,
+      "user": "Sandra",
+      "type": "flower",
+      "labels": ["April", "trimming"]
+    },
+    {
+      "id": 16,
+      "name": "Seedling transplant after rain",
+      "idColumn": 1,
+      "user": "Sandra",
+      "type": "herbs",
+      "labels": ["May", "seedling transplant", "planting"]
     }
   ],
   "labels": [

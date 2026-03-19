@@ -1,6 +1,6 @@
+import * as S from "./Form.styles";
 import { useState, useContext } from "react";
 import BoardContext from "../../context/boardContext";
-import * as S from "./Form.styles";
 
 function Form() {
   const [errors, setErrors] = useState({ taskName: "", userName: "" });

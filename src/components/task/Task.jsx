@@ -1,11 +1,11 @@
-import { useState, useContext } from "react";
 import * as S from "./Task.styles";
+import { useState, useContext } from "react";
 import toast from "react-hot-toast";
 import BoardContext from "../../context/boardContext";
+import useIsMobile from "../../hooks/useIsMobile";
 import TaskEdit from "../taskEdit/TaskEdit";
 import TaskLabels from "../taskLabels/TaskLabels";
 import DeleteModal from "../deleteModal/DeleteModal";
-import useIsMobile from "../../hooks/useIsMobile";
 import { TASK_TYPES } from "../../constants/taskTypes";
 
 function Task({ id, name, user, labels, columnId, type }) {
@@ -71,7 +71,6 @@ function Task({ id, name, user, labels, columnId, type }) {
       ) : (
         <S.TaskContent>
           <TaskLabels labels={labels} labelsList={labelsList} />
-          <S.TaskName>{name}</S.TaskName>
 
           {isMobile && (
             <S.Arrows>
@@ -86,6 +85,7 @@ function Task({ id, name, user, labels, columnId, type }) {
               </button>
             </S.Arrows>
           )}
+          <S.TaskName>{name}</S.TaskName>
 
           <S.Wrapper>
             <S.TaskUser>{user}</S.TaskUser>
