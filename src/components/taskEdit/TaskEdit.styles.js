@@ -6,7 +6,6 @@ export const EditInput = styled.input`
   border: 2px solid #333;
   border-radius: 4px;
   font-size: 14px;
-  font-family: 'Comic Sans MS', cursive;
   background: white;
   margin-bottom: 4px;
 `;

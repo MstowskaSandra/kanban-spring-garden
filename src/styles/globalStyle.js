@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     color: #283B0A;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
   }
 
   a {

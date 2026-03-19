@@ -10,6 +10,7 @@ export const TaskContainer = styled.div`
   border-radius: 6px;
   padding: 0.5rem;
   font-size: small;
+  font-weight: 500;
   width: 80%;
   margin-bottom: 0.5rem;
   background-color: ${({ typeColor }) => typeColor || "#fff475"};
@@ -17,7 +18,6 @@ export const TaskContainer = styled.div`
     0 2px 4px rgba(0, 0, 0, 0.15),
     0 6px 12px rgba(0, 0, 0, 0.15);
   transform: rotate(${() => Math.random() * 4 - 2}deg);
-  font-family: "Comic Sans MS", cursive, sans-serif;
   position: relative;
   transition:
     transform 0.15s ease,

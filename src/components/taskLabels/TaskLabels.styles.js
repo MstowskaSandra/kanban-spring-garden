@@ -11,7 +11,6 @@ export const LabelChip = styled.span`
   line-height: 1.2;
   min-width: 1.5rem;
   text-align: center;
-  font-family: "Comic Sans MS", cursive, sans-serif;
   border: 2px solid;
   background-color: white;
   border-color: ${(props) => props.color || "#e0e0e0"};

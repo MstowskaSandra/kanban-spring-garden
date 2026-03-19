@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const LabelFilters = styled.div`
   position: fixed;
-  top: 0;
+  /* top: 0;
   right: 0;
-  height: 100vh;
+  height: 100vh; */
+  inset: 0 0 0 auto;
   width: min(320px, 90vw);
   background: #5f5aa5;
   border-left: 3px solid #baaceb;
